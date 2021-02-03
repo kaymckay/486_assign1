@@ -1,0 +1,38 @@
+Kayla McKay (kaymckay) 
+
+Words 147512
+Vocabulary 10367
+
+Min number of unique words to account for 25% of total number of words in the collection:
+61
+
+Subsets: cranfield0011 , cranfield0037
+
+cranfield0011: 
+N = 73
+V = 61
+
+cranfield0037
+N = 118
+V = 84
+
+beta = 0.666235
+K = 3.4988
+
+if N = 1,000,000:
+    V = 34780
+
+if N = 100,000,000:
+    V = 747826
+
+
+
+
+
+
+
+
+
+
+
+
