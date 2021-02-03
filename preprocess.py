@@ -340,9 +340,10 @@ def main(directory):
             break
     
     out_file = open("preprocess.output", "w")
-    print("Words " + str(total_num), file=out_file)
-    print("Vocabulary " + str(total_unique), file=out_file)
-    print("Top 50 words", file=out_file)
+    sys.stdout = out_file
+    print("Words " + str(total_num))
+    print("Vocabulary " + str(total_unique))
+    print("Top 50 words")
 
 
     for token in top_50:
