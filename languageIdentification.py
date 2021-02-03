@@ -166,7 +166,8 @@ def main(testfile):
     sys.stdout = out_file
     for line in Lines:
         language = identifyLanguage(line, langs, [e_uni, f_uni, i_uni], [e_di, f_di, i_di])
-        print(line + " " + language)
+        # print(line + " " + language)
+        print(count + " " + language)
         count += 1
 
 
