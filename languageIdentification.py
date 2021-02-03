@@ -161,14 +161,11 @@ def main(testfile):
     langs = ["English", "French", "Italian"]
     t = open(testfile, 'r', encoding="ISO-8859-1")
     Lines = t.readlines()
-    count = 1
     out_file = open("languageIdentificaton.output", "w")
     sys.stdout = out_file
     for line in Lines:
         language = identifyLanguage(line, langs, [e_uni, f_uni, i_uni], [e_di, f_di, i_di])
-        # print(line + " " + language)
-        print(str(count) + " " + language)
-        count += 1
+        print(line + " " + language)
 
 
 

@@ -22,7 +22,6 @@ def removeSGML(line):
         elif not tag:
             cleanedLine = cleanedLine + char 
 
-    # print(cleanedLine)
     return cleanedLine
 
 
@@ -43,7 +42,7 @@ def tokenizeText(line):
         if not word == '':
             # print(word)
             for w in word:
-                # acronyms/abbreviatons
+                # cases
                 if  w == '.':
                     if first == 'period':
                         token = token[: len(token) - 1]
@@ -133,12 +132,9 @@ def tokenizeText(line):
             first = ""
             second = ""
             token = ""
-    
-    # print(tokens)
+
     return tokens
 
-
-    # return list
 
 def decontract(line):
     contractions = {
@@ -268,9 +264,6 @@ def decontract(line):
     return line
 
 
-
-
-
 def removeStopwords(tokens):
     """Function that removes the stopwords. """
 
@@ -289,7 +282,6 @@ def stemWords(tokens):
         tokens[index] = p.stem(word, 0, len(word) - 1)
 
     return tokens
-
 
 
 stopwords = []
@@ -350,81 +342,7 @@ def main(directory):
         print(str(token[0]) + " " + str(token[1]))
 
 
-
-
-
-
-
-# def subset(directory):
-#     global_tokens = {}
-
-#     with open(os.path.join(directory, "cranfield0011"), 'r') as f: 
-#             Lines = f.readlines()
-#             for line in Lines:
-#                 line = removeSGML(line)
-#                 tokens = tokenizeText(line)
-#                 if tokens:
-#                     tokens = removeStopwords(tokens)
-#                     tokens = stemWords(tokens)
-#                     for token in tokens:
-#                         if token in global_tokens:
-#                             global_tokens[token] += 1
-#                         else:
-#                             global_tokens[token] = 1
-
-#     # Get stats on collection
-#     total_num = 0
-#     total_unique = 0
-
-#     for token in global_tokens:
-#         if any(c.isalpha() for c in token) or any(c.isdigit() for c in token):
-#             # if token.isalpha() or token.isdigit():
-#             total_num += global_tokens[token]
-#             total_unique += 1
-
-#     global_tokens = sorted(global_tokens.items(), key=lambda kv: kv[1], reverse=True)
-
-
-#     print("Words " + str(total_num))
-#     print("Vocabulary " + str(total_unique))
-
-#     global_tokens = {}
-#     with open(os.path.join(directory, "cranfield0037"), 'r') as f: 
-#         Lines = f.readlines()
-#         for line in Lines:
-#             line = removeSGML(line)
-#             tokens = tokenizeText(line)
-#             if tokens:
-#                 tokens = removeStopwords(tokens)
-#                 tokens = stemWords(tokens)
-#                 for token in tokens:
-#                     if token in global_tokens:
-#                         global_tokens[token] += 1
-#                     else:
-#                         global_tokens[token] = 1
-    
-
-#     # Get stats on collection
-#     total_num = 0
-#     total_unique = 0
-
-#     for token in global_tokens:
-#         if any(c.isalpha() for c in token) or any(c.isdigit() for c in token):
-#             # if token.isalpha() or token.isdigit():
-#             total_num += global_tokens[token]
-#             total_unique += 1
-
-#     global_tokens = sorted(global_tokens.items(), key=lambda kv: kv[1], reverse=True)
-
-
-#     print("Words " + str(total_num))
-#     print("Vocabulary " + str(total_unique))
-
-
-
-
 if __name__ == '__main__':
     # run main
     # python3 preprocess.py cranfieldDocs
     main(sys.argv[1])
-    # subset(sys.argv[1])
