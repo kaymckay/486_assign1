@@ -163,9 +163,10 @@ def main(testfile):
     Lines = t.readlines()
     count = 1
     out_file = open("languageIdentificaton.output", "w")
+    sys.stdout = out_file
     for line in Lines:
         language = identifyLanguage(line, langs, [e_uni, f_uni, i_uni], [e_di, f_di, i_di])
-        print(line + " " + language, file=out_file)
+        print(line + " " + language)
         count += 1
 
 
