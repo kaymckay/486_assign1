@@ -347,7 +347,7 @@ def main(directory):
 
 
     for token in top_50:
-        print(str(token[0]) + " " + str(token[1]), file=out_file)
+        print(str(token[0]) + " " + str(token[1]))
 
 
 
